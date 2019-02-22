@@ -16,7 +16,20 @@ export default {
                 type: 'initList',
                 payload: { cardsList: resp.result }
             });
-        }
+        },
+        *addCard({ payload }, { call, put }) {
+            const rsp = yield call(request, '/api/cards/add', {
+                headers: {
+                  'content-type': 'application/json',
+                },
+                method: 'POST',
+                body: JSON.stringify(payload),
+            });
+            yield call(delay, 1000);
+            yield put({ 
+                type: 'queryList'
+            });
+        },
     },
     reducers: {
         initList(state, { payload: { cardsList } }) {
