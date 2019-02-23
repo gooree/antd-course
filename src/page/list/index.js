@@ -23,10 +23,12 @@ class List extends React.Component {
     }
 
     showModal = () => {
+        this.props.form.resetFields();
         this.setState({ visible: true });
     }
 
     handleCancel = () => {
+        this.props.form.resetFields();
         this.setState({ visible: false });
     }
 
