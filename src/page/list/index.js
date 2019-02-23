@@ -72,7 +72,7 @@ class List extends React.Component {
             <div>
                 <Table columns={columns} dataSource={cardsList} loading={cardsLoading} rowKey="id" />
 
-                <Button onClick={this.showModal}>新建</Button>
+                <Button icon="plus" type="primary" onClick={this.showModal}>新建</Button>
                 <Modal title="新建记录" visible={visible} onCancel={this.handleCancel} onOk={this.handleOk}>
                 <Form>
                     <FormItem label="名称">
